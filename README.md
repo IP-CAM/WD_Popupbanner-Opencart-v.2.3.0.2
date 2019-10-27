@@ -11,6 +11,7 @@ Install
 2. Install module "Popup banner" in Extension > Modules.
 3. Edit module configuration, and save changes.
 4. Add module in on "Design > Layout" of pages, where you want to see popup banner
+
 If you don't see module on Payments page, make sure that you have rights to edit module in System > User Permissions > Administrator
 
 -- -- --
