@@ -1,7 +1,7 @@
 POPUP Banner module for Opencart 2.3.0.2
 Author: pavlowd (https://khita.org)
 Telegram Contact: https://t.me/pavlowd
-License: Copyright
+License: GNU General Public License v3.0
 
 -- -- --
 
