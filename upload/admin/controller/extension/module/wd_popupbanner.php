@@ -103,6 +103,9 @@ class ControllerExtensionModuleWdPopupBanner extends Controller {
 
 		$data['cancel'] = $this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=module', true);
 
+
+		$module_info = array();
+
 		if (isset($this->request->get['module_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$module_info = $this->model_extension_module->getModule($this->request->get['module_id']);
 		}
@@ -122,12 +125,11 @@ class ControllerExtensionModuleWdPopupBanner extends Controller {
 		} else {
 			$data['image'] = '';
 		}
-		
 		$this->load->model('tool/image');
 
 		if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
 			$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
-		} elseif ($module_info['image'] && is_file(DIR_IMAGE . $module_info['image'])) {
+		} elseif (!empty($module_info['image']) && is_file(DIR_IMAGE . $module_info['image'])) {
 			$data['thumb'] = $this->model_tool_image->resize($module_info['image'], 100, 100);
 		} else {
 			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
