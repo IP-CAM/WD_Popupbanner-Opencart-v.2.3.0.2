@@ -117,10 +117,12 @@ class ControllerExtensionModuleWdPopupBanner extends Controller {
 
 		if (isset($this->request->post['image'])) {
 			$data['image'] = $this->request->post['image'];
-		} else {
+		} elseif (!empty($module_info)) {
 			$data['image'] = $module_info['image'];
+		} else {
+			$data['image'] = '';
 		}
-
+		
 		$this->load->model('tool/image');
 
 		if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
